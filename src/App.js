@@ -1,7 +1,33 @@
 import React, { useState } from 'react';
 import './App.css';
+import DoodleGame from './game/DoodleGame';
 
+// The app has two tabs. Opening an invite link (?room=CODE) goes straight to the game.
 function App() {
+  const [tab, setTab] = useState(() =>
+    new URLSearchParams(window.location.search).has('room') ? 'game' : 'finder'
+  );
+
+  return (
+    <div className="App">
+      <header className="App-header">
+        <h1>{tab === 'finder' ? '🎉 Family Activity Finder' : '🎨 Doodle Dash'}</h1>
+        <p>{tab === 'finder' ? 'Discover fun weekend activities for your family' : 'A draw-and-guess party game for the whole family'}</p>
+        <nav className="App-tabs">
+          <button className={tab === 'finder' ? 'active' : ''} onClick={() => setTab('finder')}>
+            🗺️ Activity Finder
+          </button>
+          <button className={tab === 'game' ? 'active' : ''} onClick={() => setTab('game')}>
+            🎨 Doodle Dash
+          </button>
+        </nav>
+      </header>
+      {tab === 'finder' ? <ActivityFinder /> : <main className="App-game"><DoodleGame /></main>}
+    </div>
+  );
+}
+
+function ActivityFinder() {
   // State to store form inputs
   const [formData, setFormData] = useState({
     city: '',
@@ -60,12 +86,6 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>🎉 Family Activity Finder</h1>
-        <p>Discover fun weekend activities for your family</p>
-      </header>
-
       <main className="App-main">
         <form onSubmit={handleSubmit} className="activity-form">
           <div className="form-group">
@@ -156,7 +176,6 @@ function App() {
           </div>
         )}
       </main>
-    </div>
   );
 }
 

@@ -1,0 +1,264 @@
+/* Doodle Dash — white cards on the app's purple gradient, big friendly targets. */
+:root {
+  --dd-ink: #2d2a3e;
+  --dd-muted: #8b88a0;
+  --dd-line: #ece9f5;
+  --dd-soft: #f6f4fc;
+  --dd-accent: #667eea;
+  --dd-accent-2: #764ba2;
+  --dd-good: #22c55e;
+  --dd-warn: #f97316;
+}
+
+.dd-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  padding: 1.5rem;
+  color: var(--dd-ink);
+}
+.dd-card h3 { margin-bottom: 0.9rem; font-size: 1.1rem; }
+
+.dd-muted { color: var(--dd-muted); font-size: 0.9rem; font-weight: 400; }
+.center { text-align: center; }
+.dd-error { color: #dc2626; margin-top: 0.75rem; text-align: center; }
+
+.dd-label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--dd-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 1.1rem 0 0.5rem;
+}
+
+.dd-input {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  border: 2px solid var(--dd-line);
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--dd-ink);
+  background: #fff;
+  resize: vertical;
+}
+.dd-input:focus { outline: none; border-color: var(--dd-accent); }
+.dd-input:disabled { background: var(--dd-soft); }
+
+.dd-btn {
+  padding: 0.8rem 1.2rem;
+  border-radius: 10px;
+  border: 2px solid var(--dd-line);
+  background: #fff;
+  color: var(--dd-ink);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.dd-btn:hover:not(:disabled) { transform: translateY(-2px); }
+.dd-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.dd-btn.primary {
+  width: 100%;
+  margin-top: 1.4rem;
+  border: none;
+  color: #fff;
+  background: linear-gradient(135deg, var(--dd-accent), var(--dd-accent-2));
+}
+.dd-btn.primary:hover:not(:disabled) { box-shadow: 0 6px 18px rgba(102, 126, 234, 0.45); }
+.dd-btn.small { padding: 0.4rem 0.75rem; font-size: 0.85rem; }
+
+/* ---------- Home ---------- */
+.dd-home { max-width: 440px; margin: 0 auto; }
+.dd-home h2 { font-size: 2rem; text-align: center; }
+.dd-sub { text-align: center; color: var(--dd-muted); margin-top: 0.25rem; }
+
+.dd-avatars { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0.5rem; }
+.dd-avatar {
+  font-size: 1.6rem;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  border: 2px solid var(--dd-line);
+  background: #fff;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.dd-avatar:hover { transform: scale(1.08); }
+.dd-avatar.active { border-color: var(--dd-accent); background: var(--dd-soft); transform: scale(1.08); }
+
+.dd-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.4rem 0 1rem;
+  color: var(--dd-muted);
+  font-size: 0.85rem;
+}
+.dd-divider::before, .dd-divider::after { content: ''; flex: 1; height: 1px; background: var(--dd-line); }
+.dd-join { display: flex; gap: 0.5rem; }
+.dd-input.code { text-transform: uppercase; letter-spacing: 0.3em; font-weight: 700; text-align: center; }
+
+/* ---------- Lobby ---------- */
+.dd-lobby {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: start;
+}
+.dd-room-code {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding: 0.9rem 1rem;
+  background: var(--dd-soft);
+  border-radius: 12px;
+  margin-bottom: 1.2rem;
+}
+.dd-room-code strong { font-size: 1.6rem; letter-spacing: 0.25em; flex: 1; }
+
+.dd-player-grid { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 0.5rem; margin-bottom: 0.75rem; }
+.dd-player-grid li { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; border-radius: 10px; background: var(--dd-soft); }
+.dd-big-avatar { font-size: 1.5rem; line-height: 1; }
+
+.dd-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.dd-chip {
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  border: 2px solid var(--dd-line);
+  background: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--dd-ink);
+  cursor: pointer;
+}
+.dd-chip small { color: var(--dd-muted); font-weight: 500; margin-left: 0.2rem; }
+.dd-chip.active { border-color: var(--dd-accent); background: var(--dd-accent); color: #fff; }
+.dd-chip.active small { color: rgba(255, 255, 255, 0.8); }
+.dd-chip:disabled { cursor: default; }
+
+.dd-settings-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.dd-stepper > div { display: flex; align-items: center; gap: 0.75rem; }
+.dd-stepper button {
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 2px solid var(--dd-line); background: #fff;
+  font-size: 1.2rem; cursor: pointer; color: var(--dd-ink);
+}
+.dd-stepper button:disabled { opacity: 0.4; cursor: default; }
+.dd-stepper strong { font-size: 1.3rem; min-width: 1.5rem; text-align: center; }
+
+.dd-toggle { display: flex; align-items: center; gap: 0.75rem; margin-top: 1rem; cursor: pointer; font-weight: 500; }
+.dd-toggle.disabled { opacity: 0.55; cursor: default; }
+.dd-toggle input { display: none; }
+.dd-switch { width: 42px; height: 24px; border-radius: 999px; background: var(--dd-line); position: relative; transition: background 0.2s; flex-shrink: 0; }
+.dd-switch::after { content: ''; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.25); transition: transform 0.2s; }
+.dd-toggle input:checked + .dd-switch { background: var(--dd-accent); }
+.dd-toggle input:checked + .dd-switch::after { transform: translateX(18px); }
+
+/* ---------- Play ---------- */
+.dd-play {
+  display: grid;
+  grid-template-columns: 210px minmax(0, 1fr) 280px;
+  grid-template-areas: 'top top top' 'scores stage chat';
+  gap: 1rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.dd-topbar { grid-area: top; display: flex; align-items: center; gap: 1rem; padding: 0.9rem 1.25rem; }
+.dd-pill { background: var(--dd-soft); padding: 0.35rem 0.8rem; border-radius: 999px; font-weight: 600; font-size: 0.9rem; white-space: nowrap; }
+.dd-banner { flex: 1; text-align: center; font-size: 1.15rem; }
+.dd-word { color: var(--dd-accent-2); font-size: 1.35rem; letter-spacing: 0.03em; }
+.dd-timer { font-weight: 700; font-size: 1.2rem; min-width: 4rem; text-align: right; font-variant-numeric: tabular-nums; }
+.dd-timer.low { color: var(--dd-warn); animation: dd-pulse 1s infinite; }
+@keyframes dd-pulse { 50% { transform: scale(1.12); } }
+
+.dd-hint { display: inline-flex; align-items: flex-end; gap: 0.35rem; flex-wrap: wrap; justify-content: center; }
+.dd-hint .letter { width: 1.1rem; border-bottom: 3px solid var(--dd-ink); text-align: center; font-weight: 700; font-size: 1.3rem; line-height: 1.4; text-transform: uppercase; }
+.dd-hint .space { width: 0.8rem; }
+.dd-hint small { color: var(--dd-muted); margin-left: 0.4rem; }
+
+.dd-scores { grid-area: scores; padding: 0.75rem; display: flex; flex-direction: column; gap: 0.4rem; align-self: start; }
+.dd-score { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; border-radius: 10px; transition: background 0.3s; }
+.dd-score.guessed { background: #dcfce7; }
+.dd-score.drawing { background: var(--dd-soft); }
+.dd-rank { color: var(--dd-muted); font-size: 0.8rem; width: 1.5rem; }
+.dd-score-name { flex: 1; display: flex; flex-direction: column; font-weight: 600; font-size: 0.95rem; min-width: 0; overflow-wrap: anywhere; }
+.dd-score-name small { color: var(--dd-muted); font-weight: 500; }
+
+.dd-stage { grid-area: stage; position: relative; }
+.dd-board canvas {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  display: block;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  touch-action: none; /* stop the page scrolling while drawing on touch screens */
+}
+.dd-board canvas.can-draw { cursor: crosshair; }
+
+.dd-tools {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem;
+  margin-top: 0.75rem; padding: 0.6rem 0.75rem;
+  background: #fff; border-radius: 14px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+.dd-colors { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.dd-swatch { width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--dd-line); cursor: pointer; transition: transform 0.15s; }
+.dd-swatch.active { transform: scale(1.2); box-shadow: 0 0 0 3px var(--dd-accent); }
+.dd-tool-group { display: flex; gap: 0.35rem; }
+.dd-tool {
+  width: 40px; height: 40px; border-radius: 10px;
+  border: 2px solid var(--dd-line); background: #fff; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+}
+.dd-tool.active { border-color: var(--dd-accent); background: var(--dd-soft); }
+.dd-dot { display: block; border-radius: 50%; background: var(--dd-ink); }
+
+.dd-overlay {
+  position: absolute; inset: 0; bottom: auto; aspect-ratio: 4 / 3;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;
+  padding: 1rem; text-align: center;
+  background: rgba(45, 42, 62, 0.82); color: #fff; border-radius: 16px;
+  animation: dd-fade 0.25s ease-out;
+}
+.dd-overlay.soft { background: rgba(45, 42, 62, 0.6); }
+.dd-overlay h3 { font-size: 1.5rem; }
+.dd-overlay .dd-word { color: #fde68a; }
+@keyframes dd-fade { from { opacity: 0; transform: scale(0.97); } }
+.dd-choices { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
+.dd-choices .dd-btn.primary { width: auto; margin: 0; min-width: 130px; font-size: 1.1rem; }
+
+.dd-podium { list-style: none; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+.dd-podium li { display: flex; flex-direction: column; align-items: center; background: rgba(255,255,255,.12); padding: 0.8rem 1.1rem; border-radius: 14px; min-width: 110px; }
+.dd-podium li > span:first-child { font-size: 1.8rem; }
+.dd-podium small { opacity: 0.8; }
+
+.dd-chat-card { grid-area: chat; padding: 0.75rem; display: flex; }
+.dd-chat { display: flex; flex-direction: column; flex: 1; min-height: 0; width: 100%; }
+.dd-chat ul { list-style: none; flex: 1; overflow-y: auto; max-height: 420px; min-height: 160px; display: flex; flex-direction: column; gap: 0.2rem; padding: 0.25rem; margin-bottom: 0.5rem; }
+.dd-lobby .dd-chat ul { max-height: 200px; min-height: 100px; }
+.dd-msg { font-size: 0.92rem; padding: 0.3rem 0.5rem; border-radius: 8px; overflow-wrap: anywhere; }
+.dd-msg.system { color: var(--dd-muted); font-style: italic; }
+.dd-msg.correct { background: #dcfce7; color: #166534; font-weight: 600; }
+.dd-msg.close { background: #fff7ed; color: #c2410c; }
+.dd-msg.secret { background: #f0fdf4; color: #166534; }
+
+/* ---------- Small screens ---------- */
+@media (max-width: 968px) {
+  .dd-lobby { grid-template-columns: 1fr; }
+  .dd-play { grid-template-columns: 1fr; grid-template-areas: 'top' 'stage' 'chat' 'scores'; }
+  .dd-scores { flex-direction: row; flex-wrap: wrap; }
+  .dd-score { flex: 1 1 140px; }
+  .dd-chat ul { max-height: 200px; }
+}
+@media (max-width: 600px) {
+  .dd-card { padding: 1rem; }
+  .dd-topbar { flex-wrap: wrap; gap: 0.5rem; }
+  .dd-banner { order: 3; flex-basis: 100%; }
+  .dd-settings-row { grid-template-columns: 1fr; }
+  .dd-swatch { width: 26px; height: 26px; }
+}
