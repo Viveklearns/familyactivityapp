@@ -206,3 +206,34 @@
     font-size: 1.5rem;
   }
 }
+
+/* Tabs to switch between the activity finder and the game */
+.App-tabs {
+  display: inline-flex;
+  gap: 0.25rem;
+  margin-top: 1.25rem;
+  padding: 0.3rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.App-tabs button {
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.55rem 1.2rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.App-tabs button.active {
+  background: white;
+  color: #764ba2;
+}
+
+.App-game {
+  padding: 0 1rem 3rem;
+}
